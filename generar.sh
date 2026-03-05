@@ -1,9 +1,8 @@
 #!/bin/zsh
 
-# generar_minimo.sh - Versión minimalista
 source venv/bin/activate
 
-echo "🚀 Generando con ANTLR 4.13.2..."
+echo "Generando con ANTLR 4"
 
 # Limpiar
 rm -f gramaticas/Calculadora*.py
@@ -21,5 +20,5 @@ cp generado/gramaticas/*.py gramaticas/
 touch gramaticas/__init__.py
 rm -rf generado
 
-echo "✅ Listo"
+echo "Listo"
 ls -la gramaticas/Calculadora*.py
