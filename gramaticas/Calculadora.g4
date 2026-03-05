@@ -1,22 +1,19 @@
 grammar Calculadora;
 
-@header {
-from enum import Enum
-}
-
 @parser::members {
     # Memoria para variables
     memoria = {}
 }
 
 // Programa principal
-programa: (sentencia)+ EOF;
+programa: (sentencia)* EOF;
 
 // Sentencias
 sentencia
     : declaracion_variable
-    | expresion_stmt
     | asignacion
+    | expresion_stmt
+    | comentario
     ;
 
 declaracion_variable
@@ -30,6 +27,11 @@ asignacion
 
 expresion_stmt
     : expresion NL
+    ;
+
+comentario
+    : COMENTARIO_LINEA
+    | COMENTARIO_BLOQUE
     ;
 
 // Expresiones con precedencia (de menor a mayor)
@@ -68,8 +70,10 @@ IDENTIFICADOR : LETRA (LETRA | DIGITO | '_')*;
 fragment LETRA : [a-zA-ZáéíóúñÁÉÍÓÚÑ];
 fragment DIGITO : [0-9];
 
-// Espacios y nuevas líneas
+// Saltos de línea - importante: deben capturarse como tokens
 NL : ('\r'? '\n')+;
+
+// Espacios en blanco - se ignoran
 WS : [ \t]+ -> skip;
 
 // Comentarios
