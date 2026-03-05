@@ -16,8 +16,8 @@ Con instrucciones para instalar en
 #### Linux (Debian)
 - Python 3.8 o superior<br>
 `
-sudo apt update
-sudo apt upgrade
+sudo apt update`<br>
+`sudo apt upgrade
 `
 - Java Runtime (para ANTLR)<br>
 `
@@ -29,15 +29,15 @@ sudo apt install default-jre
 `Calculadora-RISCO`
 
 ### 2. Crear y activar entorno virtual
-`python3 -m venv venv
-source venv/bin/activate`
+`python3 -m venv venv`<br>
+`source venv/bin/activate`
 
 ### 3. Instalar dependencias
 `pip install antlr4-python3-runtime==4.13.2`
 
 ### 4. Generar el parser
-`chmod +x generar.sh
-./generar.sh`
+`chmod +x generar.sh`<br>
+`./generar.sh`
 
 
  ## ¿Cómo usar RC_Calculadora?
