@@ -5,8 +5,8 @@ grammar Calculadora;
     memoria = {}
 }
 
-// Programa principal
-programa: (sentencia)* EOF;
+// Programa principal - acepta saltos de línea entre sentencias
+programa: (NL* sentencia NL*)* EOF;
 
 // Sentencias
 sentencia
