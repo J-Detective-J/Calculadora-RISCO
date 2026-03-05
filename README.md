@@ -45,5 +45,5 @@ source venv/bin/activate`
 `python src/rc_calculadora.py`
  ### Ejecutar un archivo:
  - Crea un archivo con extensión .rc<br>
-`python src/rc_calculadora.py nombre_del_archivo.rc`
+`python src/rc_calculadora.py Carpeta/nombre_del_archivo.rc`
  ###
