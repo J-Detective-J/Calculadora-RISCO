@@ -1,0 +1,8 @@
+// Demostrar precedencia de operadores
+val a = 2 + 3 * 4    // 14
+val b = (2 + 3) * 4  // 20
+val c = 2 ^ 3 ^ 2    // 512 (asociativo derecha)
+
+a
+b
+c

@@ -1,0 +1,9 @@
+// Variables mutables e inmutables
+val PI = 3.14159  // inmutable
+var contador = 0   // mutable
+
+contador = contador + 1
+contador = contador + 1
+contador
+
+PI * 2  // usar constante
