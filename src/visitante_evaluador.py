@@ -26,7 +26,7 @@ class VisitanteEvaluador(CalculadoraVisitor):
                     resultados.append(resultado)
                     self.ultimo_resultado = resultado
             except Exception as e:
-                print(f"Error en línea: {e}")
+                print(f"Error: {e}")
         return resultados[-1] if resultados else None
     
     # Sentencias
@@ -56,10 +56,6 @@ class VisitanteEvaluador(CalculadoraVisitor):
         resultado = self.visit(ctx.expresion())
         print(f"> {resultado}")
         return resultado
-    
-    def visitComentario(self, ctx: CalculadoraParser.ComentarioContext):
-        # Ignorar comentarios
-        return None
     
     # Expresiones
     def visitExpresion(self, ctx: CalculadoraParser.ExpresionContext):
