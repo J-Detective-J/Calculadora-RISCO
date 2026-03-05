@@ -13,7 +13,6 @@ sentencia
     : declaracion_variable
     | asignacion
     | expresion_stmt
-    | comentario
     ;
 
 declaracion_variable
@@ -27,11 +26,6 @@ asignacion
 
 expresion_stmt
     : expresion NL
-    ;
-
-comentario
-    : COMENTARIO_LINEA
-    | COMENTARIO_BLOQUE
     ;
 
 // Expresiones con precedencia (de menor a mayor)
@@ -70,13 +64,13 @@ IDENTIFICADOR : LETRA (LETRA | DIGITO | '_')*;
 fragment LETRA : [a-zA-ZáéíóúñÁÉÍÓÚÑ];
 fragment DIGITO : [0-9];
 
-// Saltos de línea - importante: deben capturarse como tokens
+// Saltos de línea
 NL : ('\r'? '\n')+;
 
 // Espacios en blanco - se ignoran
 WS : [ \t]+ -> skip;
 
-// Comentarios
+// Comentarios - TODOS ignorados (no llegan al parser)
 COMENTARIO_LINEA : '//' ~[\r\n]* -> skip;
 COMENTARIO_BLOQUE : '/-' .*? '-/' -> skip;
 COMENTARIO_DOC : '///' ~[\r\n]* -> skip;
