@@ -14,12 +14,20 @@ class VisitanteEvaluador(CalculadoraVisitor):
     
     def __init__(self):
         self.memoria = {}  # diccionario para variables
+        self.ultimo_resultado = None
         
     # Programa
     def visitPrograma(self, ctx: CalculadoraParser.ProgramaContext):
+        resultados = []
         for sentencia in ctx.sentencia():
-            self.visit(sentencia)
-        return None
+            try:
+                resultado = self.visit(sentencia)
+                if resultado is not None:
+                    resultados.append(resultado)
+                    self.ultimo_resultado = resultado
+            except Exception as e:
+                print(f"Error en línea: {e}")
+        return resultados[-1] if resultados else None
     
     # Sentencias
     def visitDeclaracion_variable(self, ctx: CalculadoraParser.Declaracion_variableContext):
@@ -33,7 +41,7 @@ class VisitanteEvaluador(CalculadoraVisitor):
             self.memoria[nombre] = valor
         else:  # var
             self.memoria[nombre] = valor
-        return valor
+        return None
     
     def visitAsignacion(self, ctx: CalculadoraParser.AsignacionContext):
         nombre = ctx.IDENTIFICADOR().getText()
@@ -48,6 +56,10 @@ class VisitanteEvaluador(CalculadoraVisitor):
         resultado = self.visit(ctx.expresion())
         print(f"> {resultado}")
         return resultado
+    
+    def visitComentario(self, ctx: CalculadoraParser.ComentarioContext):
+        # Ignorar comentarios
+        return None
     
     # Expresiones
     def visitExpresion(self, ctx: CalculadoraParser.ExpresionContext):
