@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 source venv/bin/activate
 
 echo "Generando con ANTLR 4"
