@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Visitante evaluador para RC_Calculadora
 """
