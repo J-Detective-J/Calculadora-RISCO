@@ -67,10 +67,10 @@ fragment DIGITO : [0-9];
 // Saltos de línea
 NL : ('\r'? '\n')+;
 
-// Espacios en blanco - se ignoran
+// Espacios en blanco
 WS : [ \t]+ -> skip;
 
-// Comentarios - TODOS ignorados (no llegan al parser)
+// Comentarios
 COMENTARIO_LINEA : '//' ~[\r\n]* -> skip;
 COMENTARIO_BLOQUE : '/-' .*? '-/' -> skip;
 COMENTARIO_DOC : '///' ~[\r\n]* -> skip;
