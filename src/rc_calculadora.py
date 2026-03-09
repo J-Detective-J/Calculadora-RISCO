@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
+
 """
-RC_Calculadora - Versión simplificada
+RC_Calculadora :)
 """
 
 import sys
